@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <nav class="header__nav main-nav">
+            <ul class="main-nav__list main-list">
+                <li class="main-list__item list-item">
+                    <a class="list-item__link" href="#home">INÍCIO</a>
+                </li>
+                <li class="main-list__item list-item">
+                    <a class="list-item__link" href="#about">SOBRE</a>
+                </li>
+                <li class="main-list__item list-item">
+                    <a class="list-item__link" href="#skills">MINHAS HABILIDADES</a>
+                </li>
+                <li class="main-list__item list-item">
+                    <a class="list-item__link" href="#feedback">FEEDBACK</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+
+        <!-- Seção inicial -->
+        <section class="main__home home" id="home">
+            <h1 class="home__title">GUILHERME</h1>
+            <p class="home__subtitle">
+                DESENVOLVEDOR WEB | PROGRAMADOR PYTHON
+            </p>
+        </section>
+
+        <!-- Sobre mim -->
+        <section class="main__about about" id="about">
+            <h2 class="about__title">SOBRE MIM</h2>
+
+            <div class="about__info info-block">
+                <p class="info-block__text">
+                    Olá! Meu nome é Guilherme. Gosto de programação
+                    e de desenvolver projetos utilizando Python,
+                    HTML, CSS e bancos de dados. Estou aprendendo
+                    a criar aplicações web com Flask e busco
+                    aprimorar minhas habilidades constantemente.
+                </p>
+
+                <img
+                    class="info-block__img"
+                    src="{{ url_for('static', filename='img/profile.png') }}"
+                    alt="Minha foto"
+                    width="250"
+                    height="250"
+                >
+            </div>
+        </section>
+
+        <!-- Habilidades -->
+        <section class="main__skills skills" id="skills">
+            <h2 class="skills__title">MINHAS HABILIDADES</h2>
+
+            <p class="skills-info">
+                Conheça minhas habilidades e veja exemplos de projetos
+                relacionados a cada tecnologia.
+            </p>
+
+            <form action="/" method="POST">
+                <ul class="skills__list skills-list">
+
+                    <!-- Botão Python -->
+                    <li class="skills-list__skill skill">
+                        <img
+                            class="skill__img"
+                            src="{{ url_for('static', filename='img/python.png') }}"
+                            alt="Python"
+                            width="150"
+                            height="150"
+                        >
+
+                        <span class="skill__info">
+                            Programação, lógica e desenvolvimento web.
+                        </span>
+
+                        <button
+                            class="skill__button"
+                            type="submit"
+                            name="button_python"
+                            value="1"
+                        >
+                            VER PROJETO
+                        </button>
+                    </li>
+
+                    <!-- Botão Discord -->
+                    <li class="skills-list__skill skill">
+                        <img
+                            class="skill__img"
+                            src="{{ url_for('static', filename='img/discord.png') }}"
+                            alt="Discord"
+                            width="150"
+                            height="150"
+                        >
+
+                        <span class="skill__info">
+                            Bots e automações para o Discord.
+                        </span>
+
+                        <button
+                            class="skill__button"
+                            type="submit"
+                            name="button_discord"
+                            value="1"
+                        >
+                            VER PROJETO
+                        </button>
+                    </li>
+
+                    <!-- Botão HTML -->
+                    <li class="skills-list__skill skill">
+                        <img
+                            class="skill__img"
+                            src="{{ url_for('static', filename='img/html.png') }}"
+                            alt="HTML"
+                            width="150"
+                            height="150"
+                        >
+
+                        <span class="skill__info">
+                            Estruturação de páginas para a web.
+                        </span>
+
+                        <button
+                            class="skill__button"
+                            type="submit"
+                            name="button_html"
+                            value="1"
+                        >
+                            VER PROJETO
+                        </button>
+                    </li>
+
+                    <!-- Botão Banco de Dados -->
+                    <li class="skills-list__skill skill">
+                        <img
+                            class="skill__img"
+                            src="{{ url_for('static', filename='img/db.webp') }}"
+                            alt="Banco de dados"
+                            width="150"
+                            height="150"
+                        >
+
+                        <span class="skill__info">
+                            Consultas SQL e organização de dados.
+                        </span>
+
+                        <button
+                            class="skill__button"
+                            type="submit"
+                            name="button_db"
+                            value="1"
+                        >
+                            VER PROJETO
+                        </button>
+                    </li>
+
+                </ul>
+            </form>
+
+            <!-- Projeto Python -->
+            {% if button_python %}
+            <div class="skills__project project" id="project">
+                <h3>Projeto Python e Flask</h3>
+
+                <img
+                    class="project__img"
+                    src="{{ url_for('static', filename='img/python-project.png') }}"
+                    alt="Imagem do projeto Python"
+                    width="500"
+                >
+
+                <p>Exemplo de aplicação web desenvolvida com Flask.</p>
+
+                <a
+                    class="project__link"
+                    href="https://github.com/GuilhermeFranca1015/Contemplem-o-mago/blob/main/Calculadoradeeficienciaenergetica.py"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Abrir no GitHub
+                </a>
+            </div>
+
+            <!-- Projeto Discord -->
+            {% elif button_discord %}
+            <div class="skills__project project" id="project">
+                <h3>Projeto de Bot para Discord</h3>
+
+                <img
+                    class="project__img"
+                    src="{{ url_for('static', filename='img/proteo_bot.jpeg') }}"
+                    alt="Imagem do bot para Discord"
+                    width="500"
+                >
+
+                <p>Exemplo de bot desenvolvido com Python.</p>
+
+                <a
+                    class="project__link"
+                    href="https://github.com/GuilhermeFranca1015/Contemplem-o-mago/blob/main/mybotupdateddecomposition2.py"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Abrir no GitHub
+                </a>
+            </div>
+
+            <!-- Projeto HTML e CSS -->
+            {% elif button_html %}
+            <div class="skills__project project" id="project">
+                <h3>Projeto de Portfólio HTML e CSS</h3>
+
+                <img
+                    class="project__img"
+                    src="{{ url_for('static', filename='img/projeto_html-.jpeg') }}"
+                    alt="Imagem do projeto HTML e CSS"
+                    width="500"
+                >
+
+                <p>Exemplo de site de portfólio.</p>
+
+                <a
+                    class="project__link"
+                    href="https://github.com/GuilhermeFranca1015/Contemplem-o-mago/tree/main"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Abrir no GitHub
+                </a>
+            </div>
+
+            <!-- Projeto Banco de Dados -->
+            {% elif button_db %}
+            <div class="skills__project project" id="project">
+                <h3>Projeto com Banco de Dados</h3>
+
+                <img
+                    class="project__img"
+                    src="{{ url_for('static', filename='img/projeto_db.jpeg') }}"
+                    alt="Imagem do projeto com banco de dados"
+                    width="500"
+                >
+
+                <p>Exemplo de aplicação CRUD com Flask e SQLite.</p>
+
+                <a
+                    class="project__link"
+                    href="https://github.com/gurkanakdeniz/example-flask-crud"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Abrir no GitHub
+                </a>
+            </div>
+            {% endif %}
+
+        </section>
+
+        <!-- Formulário de feedback -->
+        <section class="main__feedback feedback" id="feedback">
+            <h2 class="feedback__title">FEEDBACK</h2>
+
+            {% if feedback_sent %}
+                <p>Feedback enviado com sucesso! Obrigado pela mensagem.</p>
+            {% endif %}
+
+            <form action="/" method="POST" class="feedback__form form">
+
+                <label for="email">Seu e-mail</label>
+
+                <input
+                    type="email"
+                    class="form__input"
+                    name="email"
+                    id="email"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
+
+                <label for="text">Seu comentário</label>
+
+                <textarea
+                    name="text"
+                    class="form__input"
+                    id="text"
+                    cols="70"
+                    rows="10"
+                    required
+                    placeholder="Digite seu comentário"
+                ></textarea>
+
+                <button
+                    class="form__button"
+                    type="submit"
+                    name="send_feedback"
+                    value="1"
+                >
+                    ENVIAR
+                </button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2026 - Guilherme</p>
+
+        <nav class="footer__links">
+            <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
+        </nav>
+    </footer>
+
+</body>
+</html>
